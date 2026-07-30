@@ -6,7 +6,10 @@ import (
 )
 
 func main() {
-	fmt.Println("Hola pto")
+	TirarDado(
+		PedirValor("De Cuantas caras es el dado a tirar: "),
+		PedirValor("Cuantas veces lo quieres que lo tire: "),
+	)
 }
 
 // Cuantas veces tirar -> logicaDado && repetir -> dar resultad
@@ -30,6 +33,12 @@ func PedirValor(mensaje string) int {
 	return Valor
 }
 
-func NumeroRandom() int {
-	return rand.IntN(100)
+// TirarDado Se emula tirar un dado y regresa el resultado de tirarlo, pide el numero de caras
+// del dado a tirar
+func TirarDado(caras int, repetir int) {
+	for i := range repetir {
+
+		resultado := rand.IntN(caras) + 1
+		fmt.Println("El resultado de la tirana #", i+1, "es: ", resultado)
+	}
 }
